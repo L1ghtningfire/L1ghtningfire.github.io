@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Person register</title>
+    <link rel="stylesheet" href="/person-info-styles.css"/>
+</head>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+h2 {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+p {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+
+label {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    display: block;
+}
+
+input {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+
+form{
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    display: block;
+}
+
+a{
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    display: block;
+}
+
+a.delete-button {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  font-size: 18px;
+  color: red;
+}
+
+a.back-to-search {
+  position: absolute;
+  bottom: 50px;
+  left: 16px;
+  font-size: 18px;
+  color: blue;
+}
+
+input.submit{
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 20px;
+}
+
+textarea {
+    width: 100%; /* Adjust the width as needed */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px 0; /* Adjust the margin as needed */
+}
+
+</style>
+<body>
+
+  <h2>Person Information</h2>
+  <p>Name: <%= person.name %></p>
+    <% if (person.birthdate) { %>
+  <p>Date of Birth: <%= person.birthdate.toLocaleDateString() %></p>
+  <% } %>
+  <!-- Add the rest of your template -->
+  
+  
+    <form action="/person/edit/<%= person._id %>" method="post">
+      <label for="phone">Telefonnummer</label>
+      <input type="text" id="phone" name="phone" value="<%= person.phone %>">
+  
+      <label for="organization">Bande / Gruppering:</label>
+      <input type="text" id="organization" name="organization" value="<%= person.organization %>">
+      
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="9"><%= person.description %></textarea>
+      
+      <input class="submit" type="submit" value="Update Information">
+  </form>
+  
+    
+    <a href="/person/<%= person._id %>/delete" class="delete-button">Delete Person</a>
+    <a href="/" class="back-to-search">Back to Search</a>
+
+</body>
+</html>
