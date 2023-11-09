@@ -1,166 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Personligt register</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <title>Personligt register</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
-
-<style>
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
-    margin: 0;
-    padding: 0;
-}
-
-/* Style the header */
-h1 {
-    text-align: center;
-    color: #ffffff;
-    margin-top: 20px;
-}
-
-head {
-    text-align: center;
-    color: #333;
-    margin-top: 20px;
-}
-
-form {
-    text-align: center;
-    margin-top: 20px;
-}
-
-input[type="text"],
-input[type="number"],
-textarea {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px;
-}
-
-button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-ul{
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0);
-    text-align: center;
-    display: block;
-}
-
-li{
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 20px;
-}
-
-input.submit{
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-label.name{
-    text-align: center;
-    display: block;
-    font-size: 20px;
-}
-
-label.age{
-    text-align: center;
-    display: block;
-    font-size: 20px;
-}
-
-label.description{
-    text-align: center;
-    display: block;
-    font-size: 20px;
-}
-
-/* Add these styles to your CSS file */
-
-/* Input boxes style */
-input[type="text"],
-input[type="number"],
-textarea {
-    width: 40%; /* Adjust the width as needed */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px 0; /* Adjust the margin as needed */
-}
-
-/* Adjust the height of the textarea */
-textarea {
-    height: 100px; /* Adjust the height as needed */
-}
-
-/* Button style */
-button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-</style>
-
 <body style="background-color: #0056b3;">
+  <h1>Opret Person</h1>
+  <form action="/add-person" method="post">
+    <label class="name" for="name">Navn:</label>
+    <input type="text" id="name" name="name" autocomplete="given-name" required><br><br>
 
-    <h1>Opret Person</h1>
-    <form action="/add-person" method="post">
-        <label class="name" for="name">Navn:</label>
-        <input type="text" id="name" name="name" autocomplete="given-name" required><br><br>
-    
-        <label class="age" for="birthdate">Dato:</label>
-        <input type="date" id="birthdate" name="birthdate" autocomplete="bday" required><br><br>
-        
-    
-        <label class="description" for="description">Description:</label>
-        <textarea id="description" name="description" autocomplete="description" rows="4" required></textarea><br><br>
-    
-    
+    <label class="age" for="birthdate">Dato:</label>
+    <input type="date" id="birthdate" name="birthdate" autocomplete="bday" required><br><br>
 
-        <input class="submit" type="submit" value="Add Person">
-    </form>
-    
-    <h1>Search for People</h1>
-    <form action="/search" method="post">
-        <label for="searchTerm"></label>
-        <input type="text" id="searchTerm" name="searchTerm">
-        <button type="submit">Search</button>
-    </form>
-    
-    <ul>
-        <% people.forEach(function(person) { %>
-            <li>
-                <a href="/person/<%= person._id %>"><%= person.name %></a>
-            </li>
-        <% }); %>
-    </ul>
-    
+    <label class="description" for="description">Description:</label>
+    <textarea id="description" name="description" autocomplete="description" rows="4" required></textarea><br><br>
+
+    <input class="submit" type="submit" value="Add Person">
+  </form>
+
+  <h1>Search for People</h1>
+  <form action="/search" method="post">
+    <label for="searchTerm">Search Term:</label>
+    <input type="text" id="searchTerm" name="searchTerm">
+    <button type="submit">Search</button>
+  </form>
+
+  <ul>
+    <!-- Example list item, replace with actual data -->
+    <li>
+      <a href="/person/1">John Doe</a>
+    </li>
+  </ul>
 </body>
 </html>
