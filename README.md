@@ -1,4 +1,0 @@
-# kta.github.io
-KRIMINELTEKNISKAFDELING NAVIGATE ROLEPLAY
-
-ohm hej.
